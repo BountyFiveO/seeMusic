@@ -1,11 +1,11 @@
 export default {
-    mapQuality: (num) => {
-        const map = {
-            0: '普通 96kbps',
-            1: '较高 128kbps',
-            2: '超高 192kbps',
-            3: '无损 320kbps'
-        };
-        return map[num];
-    }
-}
+	mapQuality: (num) => {
+		const map = {
+			0: "usually 96kbps",
+			1: "higher 128kbps",
+			2: "super high 192kbps",
+			3: "lossless 320kbps",
+		};
+		return map[num];
+	},
+};

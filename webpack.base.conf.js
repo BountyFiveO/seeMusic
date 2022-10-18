@@ -9,10 +9,10 @@ const SRC_PATH = path.resolve(__dirname, './src');
 module.exports = {
     entry: './src/main.js',
     output: {
-        // 生成的静态文件存放路径
+        //Generated static file storage path
         path: BUILD_PATH,
-        // publicPath就是打包生成的文件在引用时在前面的替换路径 src="publicPath/index_bundle.js"
-        // 此处有坑，因为路径最后是直接拼接的，所以最后必须要加上反斜杠！！
+        // publicPath It is the replacement path in front of the packaged file when it is referenced src="publicPath/index_bundle.js"
+        //There is a pit here, because the path is directly spliced ​​at the end, so the backslash must be added at the end!！
         publicPath: '/Server/build/',
         filename: '[name].[chunkhash:8].js'
     },
@@ -62,7 +62,7 @@ module.exports = {
                 use: "css?souceMap!postcss",
                 fallback: "style"
             })
-        }, { // 支持font awesome的一组loader
+        }, { //A set of loaders that support font awesome
             test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
             loader: "url?limit=10000&mimetype=application/font-woff"
         }, {
@@ -82,7 +82,7 @@ module.exports = {
     resolveLoader:{
         moduleExtensions:["-loader"]
     },
-// TODO:使用webpack code spliting技术分割代码按需加载，因为main.js太大了！！
+// Use webpack code spliting technique to split code to load on demand, because main.js is too big! !
 // https://webpack.js.org/guides/code-splitting/
     resolve: {
         extensions: [
@@ -104,12 +104,12 @@ module.exports = {
     plugins: [
         new webpack.LoaderOptionsPlugin({
             options: {
-                // 给postcss添加autoprefixer 
+                // Add autoprefixer to postcss 
                 context: __dirname,
                 postcss: [autoprefixer]
             },
             vue: {
-                // 配置让所有vue组件中的样式都pipe through postcss
+                //Configure so that styles in all vue components are piped through postcss
                 postcss: [require('autoprefixer')()]
             }
         }),
